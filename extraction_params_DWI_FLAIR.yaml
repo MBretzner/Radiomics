@@ -1,0 +1,59 @@
+setting:
+  normalize: True
+  normalizeScale: 100
+  resegmentRange: [-3, 3]
+  resegmentMode: sigma
+  voxelArrayShift: 300
+  binWidth: 5
+  label: 1
+  correctMask: True
+  force2D: True
+  force2Ddimension: 0  # axial slices, for coronal slices, use dimension 1 and for sagittal, dimension 2.
+  padDistance: 5
+  preCrop: True
+  resampledPixelSpacing: [1, 1, 6]
+  interpolator: 'sitkBSpline'
+  geometryTolerance: 0.001
+
+imageType:
+  Original: {}
+  LoG: {'sigma' : [1.0, 2.0, 3.0]}
+  LBP2D:
+    force2Ddimension : 0
+    lbp2DRadius : 1
+    lbp2DSamples : 9
+    lbp2DMethod : 'uniform'
+  Wavelet:
+    binWidth: 5
+    level : 3
+
+featureClass:
+  shape:
+  firstorder: []
+  glcm:
+    - 'Autocorrelation'
+    - 'JointAverage'
+    - 'ClusterProminence'
+    - 'ClusterShade'
+    - 'ClusterTendency'
+    - 'Contrast'
+    - 'Correlation'
+    - 'DifferenceAverage'
+    - 'DifferenceEntropy'
+    - 'DifferenceVariance'
+    - 'JointEnergy'
+    - 'JointEntropy'
+    - 'Imc1'
+    - 'Imc2'
+    - 'Idm'
+    - 'Idmn'
+    - 'Id'
+    - 'Idn'
+    - 'InverseVariance'
+    - 'MaximumProbability'
+    - 'SumEntropy'
+    - 'SumSquares'
+  glrlm:
+  glszm:
+  gldm:
+  ngtdm:
